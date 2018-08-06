@@ -34,6 +34,7 @@ group :development do
 end
 
 group :test do
+  gem 'codecov',                  '0.1.10', require: false
   gem 'database_cleaner',         '>= 1.6.2'
   gem 'rails-controller-testing', '~> 1.0.2'
   gem 'shoulda-matchers',         '~> 3.1'
