@@ -6,6 +6,7 @@ ruby '2.5.1'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'bootsnap',                 '>= 1.1.0', require: false
 gem 'figaro',                   '~> 1.1.1'
+gem 'newrelic_rpm',             '~> 5.1.0'
 gem 'pg',                       '>= 0.18', '< 2.0'
 gem 'puma',                     '~> 3.11'
 gem 'rack-cors',                '~> 1.0.2'
