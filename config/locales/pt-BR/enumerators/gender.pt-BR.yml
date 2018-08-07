@@ -1,0 +1,5 @@
+pt-BR:
+  enum:
+    gender:
+      male: Masculino
+      female: Feminino
