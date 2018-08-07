@@ -1,0 +1,7 @@
+en:
+  enum:
+    trade_item:
+      water: Water
+      food: Food
+      medication: Medication
+      ammunition: Ammunition
