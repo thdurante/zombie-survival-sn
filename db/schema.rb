@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_07_204827) do
+ActiveRecord::Schema.define(version: 2018_08_07_212735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "items", force: :cascade do |t|
+    t.bigint "survivor_id"
+    t.string "kind", null: false
+    t.integer "amount", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["survivor_id", "kind"], name: "index_items_on_survivor_id_and_kind", unique: true
+    t.index ["survivor_id"], name: "index_items_on_survivor_id"
+  end
 
   create_table "survivors", force: :cascade do |t|
     t.string "name", null: false
@@ -26,4 +36,5 @@ ActiveRecord::Schema.define(version: 2018_08_07_204827) do
     t.index ["name", "gender"], name: "index_survivors_on_name_and_gender", unique: true
   end
 
+  add_foreign_key "items", "survivors"
 end
