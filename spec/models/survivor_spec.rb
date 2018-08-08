@@ -5,6 +5,22 @@ RSpec.describe Survivor, type: :model do
 
   describe 'associations' do
     it { is_expected.to have_many(:items).inverse_of(:survivor).dependent(:destroy) }
+
+    it do
+      is_expected.to have_many(:authored_infection_alerts)
+        .class_name('InfectionAlert')
+        .with_foreign_key(:author_id)
+        .inverse_of(:author)
+        .dependent(:destroy)
+    end
+
+    it do
+      is_expected.to have_many(:received_infection_alerts)
+        .class_name('InfectionAlert')
+        .with_foreign_key(:infected_survivor_id)
+        .inverse_of(:infected_survivor)
+        .dependent(:destroy)
+    end
   end
 
   describe 'validations' do
