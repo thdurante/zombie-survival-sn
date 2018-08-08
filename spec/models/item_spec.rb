@@ -4,7 +4,7 @@ RSpec.describe Item, type: :model do
   subject { create(:item) }
 
   describe 'associations' do
-    it { is_expected.to belong_to(:survivor) }
+    it { is_expected.to belong_to(:survivor).inverse_of(:items) }
   end
 
   describe 'validations' do
