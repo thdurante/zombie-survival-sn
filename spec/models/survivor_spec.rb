@@ -3,6 +3,10 @@ require 'rails_helper'
 RSpec.describe Survivor, type: :model do
   subject { create(:survivor) }
 
+  describe 'associations' do
+    it { is_expected.to have_many(:items).dependent(:destroy) }
+  end
+
   describe 'validations' do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:age) }
