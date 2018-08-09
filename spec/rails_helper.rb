@@ -12,6 +12,7 @@ if ENV['coverage'] == 'on'
     add_filter 'app/jobs/application_job.rb'
     add_filter 'app/mailers/application_mailer.rb'
     add_filter 'app/models/application_record.rb'
+    add_filter 'app/controllers/application_controller.rb'
     minimum_coverage 100
   end
   SimpleCov.formatter = SimpleCov::Formatter::Codecov if ENV['ci'] == 'true'
@@ -35,8 +36,4 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
-
-  # Devise
-  config.include Devise::Test::ControllerHelpers, type: :controller
-  config.include Devise::Test::IntegrationHelpers, type: :feature
 end
