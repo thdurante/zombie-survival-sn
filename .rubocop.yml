@@ -73,6 +73,18 @@ Rails/LexicallyScopedActionFilter:
 Rails:
   Enabled: true
 
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/EmptyLineAfterFinalLet:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/LeadingSubject:
+  Enabled: false
+
 AllCops:
   TargetRubyVersion: 2.5.1
   Exclude:
