@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "required": [
+    "id",
+    "author_id",
+    "infected_survivor_id"
+  ],
+  "properties": {
+    "id": { "type": "integer" },
+    "author_id": { "type": "integer" },
+    "infected_survivor_id": { "type": "integer" }
+  }
+}
