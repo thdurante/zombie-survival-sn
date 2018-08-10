@@ -50,6 +50,7 @@ Metrics/ClassLength:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+    - 'lib/zssn/docs/**/*'
 
 Metrics/MethodLength:
   Max: 1000
