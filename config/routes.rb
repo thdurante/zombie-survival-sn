@@ -1,16 +1,7 @@
 Rails.application.routes.draw do
-  root to: redirect { |_params, _request|
-    host = Rails
-           .application
-           .routes
-           .url_helpers
-           .docs_url(
-             host: ENV.fetch('CANONICAL_HOST', 'localhost:3000'),
-             protocol: Rails.env.development? ? :http : :https
-           )
+  root to: redirect('/apidocs')
 
-    "/apidocs/index.html?url=#{CGI.escape(host)}"
-  }
+  mount SwaggerUiEngine::Engine, at: 'apidocs'
 
   resources :docs, only: :index
 

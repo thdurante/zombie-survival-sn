@@ -14,6 +14,7 @@ gem 'rack-cors',                '~> 1.0.2'
 gem 'rails',                    '~> 5.2.0'
 gem 'rollbar',                  '~> 2.16.0'
 gem 'swagger-blocks',           '~> 2.0.2'
+gem 'swagger_ui_engine',        '~> 1.1.2'
 gem 'tzinfo-data',              '~> 1.2.5', platforms: %i(mingw mswin x64_mingw jruby)
 
 group :development, :test do
