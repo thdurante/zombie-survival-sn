@@ -13,6 +13,7 @@ if ENV['coverage'] == 'on'
     add_filter 'app/mailers/application_mailer.rb'
     add_filter 'app/models/application_record.rb'
     add_filter 'app/controllers/application_controller.rb'
+    add_filter 'lib/zssn/docs/**/*'
     minimum_coverage 100
   end
   SimpleCov.formatter = SimpleCov::Formatter::Codecov if ENV['ci'] == 'true'
