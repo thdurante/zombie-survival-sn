@@ -5,21 +5,9 @@ module Zssn
         include Swagger::Blocks
 
         swagger_schema :Item do
-          key :required, %i(id survivor_id kind)
-
-          property :id do
-            key :type, :integer
-            key :format, :int64
-          end
-
-          property :survivor_id do
-            key :type, :integer
-            key :format, :int64
-          end
-
-          property :kind do
-            key :type, :string
-          end
+          property :id, type: :integer, format: :int64, required: true
+          property :survivor_id, type: :integer, format: :int64, required: true
+          property :kind, type: :string, required: true, enum: TradeItem.names
         end
       end
     end

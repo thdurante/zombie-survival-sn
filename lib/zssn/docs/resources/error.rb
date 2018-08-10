@@ -5,10 +5,7 @@ module Zssn
         include Swagger::Blocks
 
         swagger_schema :Error do
-          key :required, :errors
-
-          property :errors do
-            key :type, :array
+          property :errors, type: :array, required: true do
             items do
               key :type, :string
             end

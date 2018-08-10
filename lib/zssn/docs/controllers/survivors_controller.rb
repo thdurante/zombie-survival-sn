@@ -28,7 +28,15 @@ module Zssn
             key :produces, ['application/json']
             key :tags, ['Survivor']
 
-            # TODO: set parameters
+            parameter name: :survivor,
+                      description: 'Survivor to add to the database',
+                      in: :body,
+                      required: true,
+                      type: :object do
+              schema do
+                key :'$ref', :SurvivorCreateParams
+              end
+            end
 
             response 201 do
               key :description, 'Created response'
@@ -50,6 +58,7 @@ module Zssn
 
         swagger_path '/survivors/{id}' do
           operation :get do
+            key :tags, ['Survivor']
             # TODO: implement
           end
         end

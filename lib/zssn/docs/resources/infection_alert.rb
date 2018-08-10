@@ -5,22 +5,9 @@ module Zssn
         include Swagger::Blocks
 
         swagger_schema :InfectionAlert do
-          key :required, %i(id author_id infected_survivor_id)
-
-          property :id do
-            key :type, :integer
-            key :format, :int64
-          end
-
-          property :author_id do
-            key :type, :integer
-            key :format, :int64
-          end
-
-          property :infected_survivor_id do
-            key :type, :integer
-            key :format, :int64
-          end
+          property :id, type: :integer, format: :int64, required: true
+          property :author_id, type: :integer, format: :int64, required: true
+          property :infected_survivor_id, type: :integer, format: :int64, required: true
         end
       end
     end

@@ -30,6 +30,9 @@ class DocsController < ApplicationController
     ::Zssn::Docs::Resources::Item,
     ::Zssn::Docs::Resources::InflectionAlert,
     ::Zssn::Docs::Resources::Error,
+    ::Zssn::Docs::Params::Survivor::CreateParams,
+    ::Zssn::Docs::Params::Survivor::UpdateParams,
+    ::Zssn::Docs::Params::Survivor::ItemAttribute,
     ::Zssn::Docs::Controllers::SurvivorsController,
     self
   ].freeze

@@ -5,51 +5,26 @@ module Zssn
         include Swagger::Blocks
 
         swagger_schema :Survivor do
-          key :required, %i(id name age gender latitude longitude items
-                            authored_infection_alerts received_infection_alerts)
+          property :id, type: :integer, format: :int64, required: true
+          property :name, type: :string, required: true
+          property :age, type: :integer, required: true
+          property :gender, type: :string, required: true, enum: Gender.names
+          property :latitude, type: :number, required: true
+          property :longitude, type: :number, required: true
 
-          property :id do
-            key :type, :integer
-            key :format, :int64
-          end
-
-          property :name do
-            key :type, :string
-          end
-
-          property :age do
-            key :type, :integer
-          end
-
-          property :gender do
-            key :type, :string
-            key :enum, Gender.names
-          end
-
-          property :latitude do
-            key :type, :number
-          end
-
-          property :longitude do
-            key :type, :number
-          end
-
-          property :items do
-            key :type, :array
+          property :items, type: :array, required: true do
             items do
               key :'$ref', :Item
             end
           end
 
-          property :authored_infection_alerts do
-            key :type, :array
+          property :authored_infection_alerts, type: :array, required: true do
             items do
               key :'$ref', :InfectionAlert
             end
           end
 
-          property :received_infection_alerts do
-            key :type, :array
+          property :received_infection_alerts, type: :array, required: true do
             items do
               key :'$ref', :InfectionAlert
             end
