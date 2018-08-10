@@ -54,13 +54,6 @@ module Zssn
             end
           end
         end
-
-        swagger_path '/survivors/{id}' do
-          operation :get do
-            key :tags, ['Survivor']
-            # TODO: implement
-          end
-        end
       end
     end
   end
