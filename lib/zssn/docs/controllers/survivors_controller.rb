@@ -31,8 +31,7 @@ module Zssn
             parameter name: :survivor,
                       description: 'Survivor to add to the database',
                       in: :body,
-                      required: true,
-                      type: :object do
+                      required: true do
               schema do
                 key :'$ref', :SurvivorCreateParams
               end
