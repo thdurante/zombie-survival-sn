@@ -26,10 +26,10 @@ class DocsController < ApplicationController
   end
 
   SWAGGERED_CLASSES = [
-    ::Zssn::Docs::Resources::Survivor,
-    ::Zssn::Docs::Resources::Item,
-    ::Zssn::Docs::Resources::InflectionAlert,
-    ::Zssn::Docs::Resources::Error,
+    ::Zssn::Docs::Definitions::Survivor,
+    ::Zssn::Docs::Definitions::Item,
+    ::Zssn::Docs::Definitions::InflectionAlert,
+    ::Zssn::Docs::Definitions::Error,
     ::Zssn::Docs::Params::Survivor::CreateParams,
     ::Zssn::Docs::Params::Survivor::UpdateParams,
     ::Zssn::Docs::Params::Survivor::ItemAttribute,

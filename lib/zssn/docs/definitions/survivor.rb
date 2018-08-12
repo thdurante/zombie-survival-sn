@@ -1,6 +1,6 @@
 module Zssn
   module Docs
-    module Resources
+    module Definitions
       class Survivor
         include Swagger::Blocks
 
