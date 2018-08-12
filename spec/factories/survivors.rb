@@ -25,13 +25,18 @@ FactoryBot.define do
     trait :with_authored_infection_alerts do
       transient do
         authored_infection_alerts nil
+        authored_count nil
       end
 
       after(:build) do |survivor, evaluator|
         survivor.authored_infection_alerts = if evaluator.authored_infection_alerts
                                                evaluator.authored_infection_alerts
                                              else
-                                               [build(:infection_alert, author: survivor)]
+                                               build_list(
+                                                 :infection_alert,
+                                                 (evaluator.authored_count || 1),
+                                                 author: survivor
+                                               )
                                              end
       end
     end
@@ -39,13 +44,18 @@ FactoryBot.define do
     trait :with_received_infection_alerts do
       transient do
         received_infection_alerts nil
+        received_count nil
       end
 
       after(:build) do |survivor, evaluator|
         survivor.received_infection_alerts = if evaluator.received_infection_alerts
                                                evaluator.received_infection_alerts
                                              else
-                                               [build(:infection_alert, infected_survivor: survivor)]
+                                               build_list(
+                                                 :infection_alert,
+                                                 (evaluator.received_count || 1),
+                                                 infected_survivor: survivor
+                                               )
                                              end
       end
     end
