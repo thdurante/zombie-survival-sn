@@ -1,0 +1,15 @@
+en:
+  models_and_attributes: &models_and_attributes
+    models:
+      infection_alert:
+        one: Alerta de infecção
+        other: Alertas de infecção
+    attributes:
+      infection_alert:
+        id: Id
+        author_id: Id do autor
+        infected_survivor_id: Id do sobrevivente infectado
+  activerecord:
+    <<: *models_and_attributes
+  activemodel:
+    <<: *models_and_attributes

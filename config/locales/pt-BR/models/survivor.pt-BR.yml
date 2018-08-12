@@ -1,0 +1,20 @@
+pt-BR:
+  models_and_attributes: &models_and_attributes
+    models:
+      survivor:
+        one: Sobrevivente
+        other: Sobreviventes
+    attributes:
+      survivor:
+        id: Id
+        name: Nome
+        gender: Gênero
+        latitude: Latitude
+        longitude: Longitude
+        items: Itens
+        authored_infection_alerts: Alertas de infecção comunicados
+        received_infection_alerts: Alertas de infecção recebidos
+  activerecord:
+    <<: *models_and_attributes
+  activemodel:
+    <<: *models_and_attributes

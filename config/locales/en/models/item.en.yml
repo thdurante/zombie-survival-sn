@@ -1,0 +1,15 @@
+en:
+  models_and_attributes: &models_and_attributes
+    models:
+      item:
+        one: Item
+        other: Items
+    attributes:
+      item:
+        id: Id
+        survivor_id: Survivor
+        kind: Kind
+  activerecord:
+    <<: *models_and_attributes
+  activemodel:
+    <<: *models_and_attributes
