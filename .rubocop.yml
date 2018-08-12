@@ -50,6 +50,7 @@ Metrics/ClassLength:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+    - 'lib/zssn/docs/**/*'
 
 Metrics/MethodLength:
   Max: 1000
@@ -72,6 +73,18 @@ Rails/LexicallyScopedActionFilter:
 
 Rails:
   Enabled: true
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/EmptyLineAfterFinalLet:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/LeadingSubject:
+  Enabled: false
 
 AllCops:
   TargetRubyVersion: 2.5.1

@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "age",
+    "gender",
+    "latitude",
+    "longitude",
+    "items",
+    "authored_infection_alerts",
+    "received_infection_alerts"
+  ],
+  "properties": {
+    "id": { "type": "integer" },
+    "name": { "type": "string" },
+    "age": { "type": "integer" },
+    "gender": {
+      "type": "string",
+      "enum": ["Masculino", "Feminino"]
+    },
+    "latitude": { "type": "number" },
+    "longitude": { "type": "number" },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "../item.json"
+      }
+    },
+    "authored_infection_alerts": {
+      "type": "array",
+      "items": {
+        "$ref": "../infection_alert.json"
+      }
+    },
+    "received_infection_alerts": {
+      "type": "array",
+      "items": {
+        "$ref": "../infection_alert.json"
+      }
+    }
+  }
+}

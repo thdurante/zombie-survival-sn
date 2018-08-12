@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
-gem 'active_model_serializers', '~> 0.10.0'
+gem 'active_model_serializers', '~> 0.10.0', require: true
 gem 'bootsnap',                 '>= 1.1.0', require: false
 gem 'enumerated_type',          '~> 0.5.0'
 gem 'figaro',                   '~> 1.1.1'
@@ -13,6 +13,8 @@ gem 'puma',                     '~> 3.11'
 gem 'rack-cors',                '~> 1.0.2'
 gem 'rails',                    '~> 5.2.0'
 gem 'rollbar',                  '~> 2.16.0'
+gem 'swagger-blocks',           '~> 2.0.2'
+gem 'swagger_ui_engine',        '~> 1.1.2'
 gem 'tzinfo-data',              '~> 1.2.5', platforms: %i(mingw mswin x64_mingw jruby)
 
 group :development, :test do
@@ -38,6 +40,7 @@ end
 group :test do
   gem 'codecov',                  '0.1.10', require: false
   gem 'database_cleaner',         '>= 1.6.2'
+  gem 'json_matchers',            '~> 0.7.2'
   gem 'rails-controller-testing', '~> 1.0.2'
   gem 'shoulda-matchers',         '~> 3.1'
   gem 'simplecov',                '~> 0.16.1', require: false

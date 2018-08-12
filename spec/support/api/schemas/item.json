@@ -1,0 +1,17 @@
+{
+  "id": "item.json",
+  "type": "object",
+  "required": [
+    "id",
+    "survivor_id",
+    "kind"
+  ],
+  "properties": {
+    "id": { "type": "integer" },
+    "survivor_id": { "type": "integer" },
+    "kind": {
+      "type": "string",
+      "enum": ["Água", "Comida", "Medicamento", "Munição"]
+    }
+  }
+}
