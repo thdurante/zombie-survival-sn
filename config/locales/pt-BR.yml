@@ -234,9 +234,3 @@ pt-BR:
   flag:
     'true': Sim
     'false': Não
-  activemodel:
-    errors:
-      <<: *errors
-  activerecord:
-    errors:
-      <<: *errors
