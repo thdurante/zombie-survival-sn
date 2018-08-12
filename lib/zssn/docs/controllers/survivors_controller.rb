@@ -54,6 +54,27 @@ module Zssn
             end
           end
         end
+
+        swagger_path '/survivors/{id}' do
+          operation :get do
+            key :summary, 'Shows survivor'
+            key :description, 'Returns the selected survivor'
+            key :produces, ['application/json']
+            key :tags, ['Survivor']
+
+            parameter name: :id,
+                      description: 'ID of the desired Survivor',
+                      in: :path,
+                      required: true
+
+            response 200 do
+              key :description, 'Successful response'
+              schema do
+                key :'$ref', :Survivor
+              end
+            end
+          end
+        end
       end
     end
   end
