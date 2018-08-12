@@ -65,7 +65,39 @@ module Zssn
             parameter name: :id,
                       description: 'ID of the desired Survivor',
                       in: :path,
+                      type: :integer,
+                      format: :int64,
                       required: true
+
+            response 200 do
+              key :description, 'Successful response'
+              schema do
+                key :'$ref', :Survivor
+              end
+            end
+          end
+
+          operation :put do
+            key :summary, 'Updates survivor'
+            key :description, 'Updates the selected survivor'
+            key :produces, ['application/json']
+            key :tags, ['Survivor']
+
+            parameter name: :id,
+                      description: 'ID of the desired Survivor',
+                      in: :path,
+                      type: :integer,
+                      format: :int64,
+                      required: true
+
+            parameter name: :survivor,
+                      description: 'Survivor update params',
+                      in: :body,
+                      required: true do
+              schema do
+                key :'$ref', :SurvivorUpdateParams
+              end
+            end
 
             response 200 do
               key :description, 'Successful response'
