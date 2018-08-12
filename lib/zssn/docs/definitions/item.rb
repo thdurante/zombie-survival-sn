@@ -1,6 +1,6 @@
 module Zssn
   module Docs
-    module Resources
+    module Definitions
       class Item
         include Swagger::Blocks
 

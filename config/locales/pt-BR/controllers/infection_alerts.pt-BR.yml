@@ -1,0 +1,3 @@
+pt-BR:
+  infection_alerts:
+    wrong_id_param: 'Não foi possível encontrar um sobrevivente com o id informado. (%{param})'

@@ -1,6 +1,6 @@
 module Zssn
   module Docs
-    module Resources
+    module Definitions
       class Error
         include Swagger::Blocks
 
