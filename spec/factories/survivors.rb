@@ -12,13 +12,9 @@ FactoryBot.define do
       end
 
       after(:build) do |survivor, evaluator|
-        survivor.items = if evaluator.items
-                           evaluator.items
-                         else
-                           TradeItem.names.map do |trade_item|
-                             build(:item, kind: trade_item, survivor: survivor)
-                           end
-                         end
+        survivor.items = evaluator.items || TradeItem.names.map do |trade_item|
+          build(:item, kind: trade_item, survivor: survivor)
+        end
       end
     end
 
@@ -29,15 +25,11 @@ FactoryBot.define do
       end
 
       after(:build) do |survivor, evaluator|
-        survivor.authored_infection_alerts = if evaluator.authored_infection_alerts
-                                               evaluator.authored_infection_alerts
-                                             else
-                                               build_list(
-                                                 :infection_alert,
-                                                 (evaluator.authored_count || 1),
-                                                 author: survivor
-                                               )
-                                             end
+        survivor.authored_infection_alerts = evaluator.authored_infection_alerts || build_list(
+          :infection_alert,
+          (evaluator.authored_count || 1),
+          author: survivor
+        )
       end
     end
 
@@ -48,15 +40,11 @@ FactoryBot.define do
       end
 
       after(:build) do |survivor, evaluator|
-        survivor.received_infection_alerts = if evaluator.received_infection_alerts
-                                               evaluator.received_infection_alerts
-                                             else
-                                               build_list(
-                                                 :infection_alert,
-                                                 (evaluator.received_count || 1),
-                                                 infected_survivor: survivor
-                                               )
-                                             end
+        survivor.received_infection_alerts = evaluator.received_infection_alerts || build_list(
+          :infection_alert,
+          (evaluator.received_count || 1),
+          infected_survivor: survivor
+        )
       end
     end
   end
