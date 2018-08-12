@@ -36,7 +36,7 @@ module Api
       end
 
       def raise_error(param)
-        raise ArgumentError.new(I18n.t('infection_alerts.wrong_id_param', param: param))
+        raise ArgumentError, I18n.t('infection_alerts.wrong_id_param', param: param)
       end
 
       def rescue_wrong_params(error)
