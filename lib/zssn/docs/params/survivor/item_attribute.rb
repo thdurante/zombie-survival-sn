@@ -6,7 +6,9 @@ module Zssn
           include Swagger::Blocks
 
           swagger_schema :ItemAttribute do
-            property :kind, type: :string, required: true, enum: %w(water food medication ammunition)
+            key :required, %i(kind)
+
+            property :kind, type: :string, enum: %w(water food medication ammunition)
           end
         end
       end

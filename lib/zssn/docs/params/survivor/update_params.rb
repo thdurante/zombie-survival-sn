@@ -6,8 +6,10 @@ module Zssn
           include Swagger::Blocks
 
           swagger_schema :SurvivorUpdateParams do
-            property :latitude, type: :number, required: true
-            property :longitude, type: :number, required: true
+            key :required, %i(latitude longitude)
+
+            property :latitude, type: :number
+            property :longitude, type: :number
           end
         end
       end

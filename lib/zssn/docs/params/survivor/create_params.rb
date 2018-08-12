@@ -6,13 +6,15 @@ module Zssn
           include Swagger::Blocks
 
           swagger_schema :SurvivorCreateParams do
-            property :name, type: :string, required: true
-            property :age, type: :integer, requied: true
-            property :gender, type: :string, required: true, enum: %w(male female)
-            property :latitude, type: :number, required: true
-            property :longitude, type: :number, required: true
+            key :required, %i(name age gender latitude longitude items_attributes)
 
-            property :items_attributes, type: :array, required: true do
+            property :name, type: :string
+            property :age, type: :integer
+            property :gender, type: :string, enum: %w(male female)
+            property :latitude, type: :number
+            property :longitude, type: :number
+
+            property :items_attributes, type: :array do
               items do
                 key :'$ref', :ItemAttribute
               end
