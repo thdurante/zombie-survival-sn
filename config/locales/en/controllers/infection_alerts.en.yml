@@ -1,0 +1,3 @@
+en:
+  infection_alerts:
+    wrong_id_param: 'It was not possible to find a survivor with the informed id. (%{param})'
