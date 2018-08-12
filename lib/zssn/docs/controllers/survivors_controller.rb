@@ -106,6 +106,24 @@ module Zssn
               end
             end
           end
+
+          operation :delete do
+            key :summary, 'Deletes survivor'
+            key :description, 'Deleted the selected survivor'
+            key :produces, ['application/json']
+            key :tags, ['Survivor']
+
+            parameter name: :id,
+                      description: 'ID of the desired Survivor',
+                      in: :path,
+                      type: :integer,
+                      format: :int64,
+                      required: true
+
+            response 204 do
+              key :description, 'No content - Deleted successfully'
+            end
+          end
         end
       end
     end
