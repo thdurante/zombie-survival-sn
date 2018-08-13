@@ -34,6 +34,32 @@ RSpec.describe Survivor, type: :model do
     it { is_expected.to accept_nested_attributes_for(:items) }
   end
 
+  describe 'scopes' do
+    let(:infected_survivors_list) do
+      create_list(:survivor, 3, :with_received_infection_alerts, received_count: 5)
+    end
+
+    let(:non_infected_survivors_list) do
+      create_list(:survivor, 3, :with_received_infection_alerts, received_count: 2)
+    end
+
+    describe '.infected_survivors' do
+      subject { described_class.infected_survivors }
+
+      it 'returns only the infected survivors' do
+        is_expected.to match_array(infected_survivors_list)
+      end
+    end
+
+    describe '.non_infected_survivors' do
+      subject { described_class.non_infected_survivors }
+
+      it 'returns only the non infected survivors' do
+        is_expected.to match_array(non_infected_survivors_list)
+      end
+    end
+  end
+
   describe 'instance methods' do
     describe '#infected?' do
       let!(:infected_survivor) { create(:survivor, :with_received_infection_alerts, received_count: 4) }
