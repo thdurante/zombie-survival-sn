@@ -22,7 +22,7 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
       )
     end
 
-    subject { post :trade, params: params }
+    subject { post :trade, params: { trade: params } }
 
     before do |example|
       subject unless example.metadata[:skip_before_hook]
@@ -30,7 +30,7 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
 
     context 'with invalid params' do
       context 'with blank hash param' do
-        let(:params) { { survivor_1: {}, survivor_2: {} } }
+        let(:params) { { survivor_1: { id: nil }, survivor_2: { id: nil } } }
 
         include_examples 'shared examples for api/v1 responses', :unprocessable_entity, 'error'
       end
