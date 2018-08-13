@@ -17,7 +17,7 @@ module Api
       end
 
       def trade_params
-        params.require(:trade).permit(
+        params.permit(
           survivor_1: %i(id water food medication ammunition),
           survivor_2: %i(id water food medication ammunition)
         ).to_h
