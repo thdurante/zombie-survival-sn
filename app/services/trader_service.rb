@@ -43,7 +43,7 @@ class TraderService
       (1..2).each do |survivor|
         instance_variable_set(
           "@survivor_#{survivor}_#{trade_item}_amount",
-          instance_variable_get("@survivor_#{survivor}_params").fetch(trade_item, 0)
+          instance_variable_get("@survivor_#{survivor}_params").fetch(trade_item, 0).try(:to_i)
         )
 
         increment_total_trade_points!(survivor, trade_item)

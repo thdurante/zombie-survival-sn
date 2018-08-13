@@ -92,6 +92,10 @@ RSpec/LetSetup:
 RSpec/LeadingSubject:
   Enabled: false
 
+RSpec/NestedGroups:
+  Exclude:
+    - 'spec/controllers/api/v1/items_controller_spec.rb'
+
 Rails/SkipsModelValidations:
   Exclude:
     - 'app/services/trader_service.rb'

@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :survivors
       resources :infection_alerts, only: :create
+      resources :items, only: [] do
+        collection do
+          post :trade
+        end
+      end
     end
   end
 end
