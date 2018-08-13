@@ -6,7 +6,18 @@ class Item < ApplicationRecord
 
   TradeItem.names.each do |trade_item|
     scope :"#{trade_item}", -> { where(kind: trade_item) }
-    scope :"tradable_#{trade_item}", -> { send(trade_item).joins(:survivor).merge(Survivor.non_infected_survivors) }
-    scope :"lost_#{trade_item}", -> { send(trade_item).joins(:survivor).merge(Survivor.infected_survivors) }
+
+    scope :"tradable_#{trade_item}", -> do
+      send(trade_item)
+        .joins(:survivor)
+        .where
+        .not(survivors: { id: Survivor.infected_survivors.pluck(:id) })
+    end
+
+    scope :"lost_#{trade_item}", -> do
+      send(trade_item)
+        .joins(:survivor)
+        .where(survivors: { id: Survivor.infected_survivors.pluck(:id) })
+    end
   end
 end
