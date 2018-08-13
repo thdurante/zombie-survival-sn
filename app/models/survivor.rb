@@ -18,4 +18,12 @@ class Survivor < ApplicationRecord
   validates :name, uniqueness: { scope: :gender, case_sensitive: false }
 
   accepts_nested_attributes_for :items
+
+  def infected?
+    received_infection_alerts.size >= 3
+  end
+
+  def total_points
+    items.sum { |item| TradeItem.coerce(item.kind).cost }
+  end
 end

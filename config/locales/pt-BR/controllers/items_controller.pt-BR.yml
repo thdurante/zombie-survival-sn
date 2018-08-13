@@ -1,0 +1,5 @@
+pt-BR:
+  items:
+    infected_survivors: 'Ao menos um dos sobreviventes está infectado. Não pode ocorrer a troca dos itens.'
+    different_trade_points: 'Os dois sobreviventes devem ofertar itens com o mesmo total de pontos.'
+    insuficient_trade_items: 'Ao menos um dos sobreviventes não tem a quantidade necessária de um ou mais itens informados para a troca.'

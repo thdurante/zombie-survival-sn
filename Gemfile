@@ -23,8 +23,8 @@ group :development, :test do
   gem 'faker',              '~> 1.8.7'
   gem 'pry-rails',          '~> 0.3'
   gem 'rspec-rails',        '~> 3.7'
-  gem 'rubocop',            '~> 0.55.0', require: false
-  gem 'rubocop-rspec',      '~> 1.26.0'
+  gem 'rubocop',            '~> 0.58.2', require: false
+  gem 'rubocop-rspec',      '~> 1.27.0'
 end
 
 group :development do
