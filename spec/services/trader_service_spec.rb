@@ -51,11 +51,9 @@ RSpec.describe TraderService do
       end
 
       it 'the raised error has the correct message', :skip_before_hook do
-        begin
-          subject
-        rescue Zssn::InfectedSurvivors => error
-          expect(error.message).to eq(I18n.t('items.infected_survivors'))
-        end
+        subject
+      rescue Zssn::InfectedSurvivors => error
+        expect(error.message).to eq(I18n.t('items.infected_survivors'))
       end
     end
 
@@ -72,11 +70,9 @@ RSpec.describe TraderService do
       end
 
       it 'the raised error has the correct message', :skip_before_hook do
-        begin
-          subject
-        rescue Zssn::DifferentTradePoints => error
-          expect(error.message).to eq(I18n.t('items.different_trade_points'))
-        end
+        subject
+      rescue Zssn::DifferentTradePoints => error
+        expect(error.message).to eq(I18n.t('items.different_trade_points'))
       end
     end
 
@@ -93,15 +89,13 @@ RSpec.describe TraderService do
       end
 
       it 'the raised error has the correct message', :skip_before_hook do
-        begin
-          subject
-        rescue Zssn::InsuficientTradeItems => error
-          expect(error.message).to eq(I18n.t('items.insuficient_trade_items'))
-        end
+        subject
+      rescue Zssn::InsuficientTradeItems => error
+        expect(error.message).to eq(I18n.t('items.insuficient_trade_items'))
       end
     end
 
-    context 'valid trade' do
+    context 'with valid trade' do
       let(:params) do
         {
           survivor_1: { id: survivor_1.id, water: 1 },
