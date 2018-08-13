@@ -1,0 +1,5 @@
+en:
+  items:
+    infected_survivors: 'At least one of the survivors is infected. Cannot perform the trade.'
+    different_trade_points: 'The two survivors must offer items with the same amount of points.'
+    insuficient_trade_items: 'At least one of the survivors does not have the necessary amount of items informed to perform the trade.'
