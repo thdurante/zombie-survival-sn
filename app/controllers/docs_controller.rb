@@ -16,6 +16,7 @@ class DocsController < ApplicationController
 
     tag name: 'Survivor', description: 'Survivors operations'
     tag name: 'Infection Alert', description: 'Infection alerts operations'
+    tag name: 'Item', description: 'Items operations'
 
     key :host, ENV.fetch('CANONICAL_HOST', 'localhost:3000')
     key :basePath, '/api/v1/'
@@ -28,12 +29,17 @@ class DocsController < ApplicationController
     ::Zssn::Docs::Definitions::Item,
     ::Zssn::Docs::Definitions::InflectionAlert,
     ::Zssn::Docs::Definitions::Error,
+
     ::Zssn::Docs::Params::Survivor::CreateParams,
     ::Zssn::Docs::Params::Survivor::UpdateParams,
     ::Zssn::Docs::Params::Survivor::ItemAttribute,
     ::Zssn::Docs::Params::InfectionAlert::CreateParams,
+    ::Zssn::Docs::Params::Item::TradeParams,
+
     ::Zssn::Docs::Controllers::SurvivorsController,
     ::Zssn::Docs::Controllers::InfectionAlertsController,
+    ::Zssn::Docs::Controllers::ItemsController,
+
     self
   ].freeze
 
