@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "required": [
+    "average_water_per_survivor",
+    "average_food_per_survivor",
+    "average_medication_per_survivor",
+    "average_ammunition_per_survivor"
+  ],
+  "properties": {
+    "average_water_per_survivor": { "type": "number" },
+    "average_food_per_survivor": { "type": "number" },
+    "average_medication_per_survivor": { "type": "number" },
+    "average_ammunition_per_survivor": { "type": "number" }
+  }
+}

@@ -14,6 +14,11 @@ Rails.application.routes.draw do
           post :trade
         end
       end
+
+      get 'reports/infected_survivors'
+      get 'reports/non_infected_survivors'
+      get 'reports/average_amount_of_trade_items'
+      get 'reports/points_lost_due_to_infection'
     end
   end
 end
