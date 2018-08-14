@@ -17,6 +17,7 @@ class DocsController < ApplicationController
     tag name: 'Survivor', description: 'Survivors operations'
     tag name: 'Infection Alert', description: 'Infection alerts operations'
     tag name: 'Item', description: 'Items operations'
+    tag name: 'Report', description: 'Reports operations'
 
     key :host, ENV.fetch('CANONICAL_HOST', 'localhost:3000')
     key :basePath, '/api/v1/'
@@ -39,6 +40,7 @@ class DocsController < ApplicationController
     ::Zssn::Docs::Controllers::SurvivorsController,
     ::Zssn::Docs::Controllers::InfectionAlertsController,
     ::Zssn::Docs::Controllers::ItemsController,
+    ::Zssn::Docs::Controllers::ReportsController,
 
     self
   ].freeze
