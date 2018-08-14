@@ -11,7 +11,8 @@ class AverageAmountOfTradeItemsReport < BaseReport
   private
 
   def survivors_count
-    @survivors_count ||= Survivor.count.to_f
+    count = Survivor.count.zero? ? 1 : Survivor.count
+    @survivors_count ||= count.to_f
   end
 
   def average_water_per_survivor
