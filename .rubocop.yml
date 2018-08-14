@@ -95,6 +95,7 @@ RSpec/LeadingSubject:
 RSpec/NestedGroups:
   Exclude:
     - 'spec/controllers/api/v1/items_controller_spec.rb'
+    - 'spec/models/item_spec.rb'
 
 Rails/SkipsModelValidations:
   Exclude:

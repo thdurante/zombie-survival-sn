@@ -1,0 +1,8 @@
+{
+  "type": "array",
+  "properties": {
+    "items": {
+      "$ref": "../survivors/survivor.json"
+    }
+  }
+}

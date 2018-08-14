@@ -4,8 +4,20 @@ class Item < ApplicationRecord
   validates :survivor, :kind, presence: true
   validates :kind, inclusion: { in: TradeItem.names }
 
-  scope :water, -> { where(kind: TradeItem::WATER.name) }
-  scope :food, -> { where(kind: TradeItem::FOOD.name) }
-  scope :medication, -> { where(kind: TradeItem::MEDICATION.name) }
-  scope :ammunition, -> { where(kind: TradeItem::AMMUNITION.name) }
+  TradeItem.names.each do |trade_item|
+    scope :"#{trade_item}", -> { where(kind: trade_item) }
+
+    scope :"tradable_#{trade_item}", -> do
+      send(trade_item)
+        .joins(:survivor)
+        .where
+        .not(survivors: { id: Survivor.infected_survivors.pluck(:id) })
+    end
+
+    scope :"lost_#{trade_item}", -> do
+      send(trade_item)
+        .joins(:survivor)
+        .where(survivors: { id: Survivor.infected_survivors.pluck(:id) })
+    end
+  end
 end

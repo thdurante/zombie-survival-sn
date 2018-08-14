@@ -1,0 +1,7 @@
+{
+  "type": "object",
+  "required": ["points_lost_due_to_infection"],
+  "properties": {
+    "points_lost_due_to_infection": { "type": "number" }
+  }
+}
