@@ -10,6 +10,9 @@ Zombie Survival Social Network API. [Detailed Description](https://gist.github.c
 In the project's root directory:
 ```
 $ bin/setup
+OR
+$ bundle install
+$ rails db:create db:migrate
 ```
 Ruby: `2.5.1`
 Rails: `5.2.0`
@@ -28,3 +31,7 @@ In the project's root directory:
 $ [coverage=on] bundle exec rspec
 ```
 Where `coverage=on` is optional and determines whether or not the coverage report must be generated.
+
+## Docs
+
+The application docs can be found [here.](https://zssn-staging.herokuapp.com/)
