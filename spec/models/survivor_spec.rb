@@ -35,11 +35,11 @@ RSpec.describe Survivor, type: :model do
   end
 
   describe 'scopes' do
-    let(:infected_survivors_list) do
+    let!(:infected_survivors_list) do
       create_list(:survivor, 3, :with_received_infection_alerts, received_count: 5)
     end
 
-    let(:non_infected_survivors_list) do
+    let!(:non_infected_survivors_list) do
       create_list(:survivor, 3, :with_received_infection_alerts, received_count: 2)
     end
 
@@ -55,7 +55,11 @@ RSpec.describe Survivor, type: :model do
       subject { described_class.non_infected_survivors }
 
       it 'returns only the non infected survivors' do
-        is_expected.to match_array(non_infected_survivors_list)
+        is_expected.to match_array(
+          non_infected_survivors_list +
+            infected_survivors_list.map(&:received_infection_alerts).flatten.map(&:author) +
+            non_infected_survivors_list.map(&:received_infection_alerts).flatten.map(&:author)
+        )
       end
     end
   end

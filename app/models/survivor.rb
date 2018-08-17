@@ -20,13 +20,13 @@ class Survivor < ApplicationRecord
   accepts_nested_attributes_for :items
 
   scope :infected_survivors, -> do
-    joins(:received_infection_alerts)
+    joins('LEFT JOIN infection_alerts ON infection_alerts.infected_survivor_id = survivors.id')
       .group(:id, :infected_survivor_id)
       .having('count(infected_survivor_id) >= 3')
   end
 
   scope :non_infected_survivors, -> do
-    joins(:received_infection_alerts)
+    joins('LEFT JOIN infection_alerts ON infection_alerts.infected_survivor_id = survivors.id')
       .group(:id, :infected_survivor_id)
       .having('count(infected_survivor_id) < 3')
   end
