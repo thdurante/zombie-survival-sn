@@ -13,7 +13,11 @@ RSpec.describe NonInfectedSurvivorsReport do
 
   describe '.data' do
     it 'returns only the non infected survivors' do
-      is_expected.to match_array(non_infected_survivors_list)
+      is_expected.to match_array(
+        non_infected_survivors_list +
+          infected_survivors_list.map(&:received_infection_alerts).flatten.map(&:author) +
+          non_infected_survivors_list.map(&:received_infection_alerts).flatten.map(&:author)
+      )
     end
   end
 end
